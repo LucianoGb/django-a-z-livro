@@ -10,7 +10,10 @@ class Profile(models.Model):
 )
     
 def	__str__(self):
-    return '{}'.format(self.user.username)  
+    # return '{}'.format(self.user.first_name)  
+    if self.user:
+        return self.user.first_name
+    return 'Profile sem usuário associado'
 
 @receiver(post_save,	sender=User)
 def	create_user_profile(sender,	instance,	created,	**kwargs):
