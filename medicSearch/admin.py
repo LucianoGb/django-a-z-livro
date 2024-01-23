@@ -3,8 +3,9 @@ from .models import *
 
 # Register your models here.
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'role', 'birthday', 'created_at', 'updated_at', 'token')
-    
+    list_display = ('user', 'role','birthday', 'created_at', 'updated_at')
+    date_hierarchy = 'created_at'
+    empty_value_display = 'Vazio'
 
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(State)
